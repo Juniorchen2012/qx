@@ -17,7 +17,7 @@ if($request.url.indexOf('fromScriptable') >= 0){
   // chavy.msg( `开始来自scriptable...`,)
 
   if(cookie) {
-    chavy.msg(`来自scriptable...`, ``)
+    // chavy.msg(`来自scriptable...`, ``)
     var modifiedHeaders = $request.headers;
     modifiedHeaders['cookie'] = cookie;
     $done({headers : modifiedHeaders});
