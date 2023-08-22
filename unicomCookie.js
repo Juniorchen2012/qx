@@ -14,10 +14,10 @@ const header = JSON.stringify($request.headers)
 if($request.url.indexOf('fromScriptable') >= 0){
   if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
   const cookie = chavy.getdata(tokenheaderKey)
-  chavy.msg(cookieName, `开始来自scriptable...`, tokenheaderVal)
+  chavy.msg( `开始来自scriptable...`,)
 
   if(cookie) {
-    chavy.msg(cookieName, `来自scriptable...`, ``)
+    chavy.msg(`来自scriptable...`, ``)
     var modifiedHeaders = $request.headers;
     modifiedHeaders['cookie'] = cookie;
     $done({headers : modifiedHeaders});
