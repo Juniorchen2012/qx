@@ -9,12 +9,12 @@ const findlotteryurlKey = 'chavy_findlotteryurl_10010'
 const findlotteryheaderKey = 'chavy_findlotteryheader_10010'
 const chavy = init()
 const header = JSON.stringify($request.headers)
-  chavy.msg('fromScriptable',header.fromScriptable,'god',header)
+  // chavy.msg('fromScriptable',header.fromScriptable,'god',header)
 
 if($request.url.indexOf('fromScriptable') >= 0){
   if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
   const cookie = chavy.getdata(tokenheaderKey)
-  chavy.msg( `开始来自scriptable...`,)
+  // chavy.msg( `开始来自scriptable...`,)
 
   if(cookie) {
     chavy.msg(`来自scriptable...`, ``)
@@ -26,7 +26,7 @@ if($request.url.indexOf('fromScriptable') >= 0){
 }else{
 
 if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0) {
-  chavy.msg(cookieName, `获取中...`, ``)
+  // chavy.msg(cookieName, `获取中...`, ``)
   const tokenurlVal = $request.url
   const tokenheaderVal = JSON.stringify($request.headers)
   if (tokenurlVal) chavy.setdata(tokenurlVal, tokenurlKey)
