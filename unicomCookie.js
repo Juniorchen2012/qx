@@ -11,7 +11,7 @@ const chavy = init()
 const header = JSON.stringify($request.headers)
   chavy.msg('fromScriptable',header.fromScriptable,'god',header)
 
-if($request.url.indexOf('fromScriptable')){
+if($request.url.indexOf('fromScriptable') >= 0){
   if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
   const cookie = chavy.getdata(tokenheaderKey)
   chavy.msg(cookieName, `开始来自scriptable...`, tokenheaderVal)
