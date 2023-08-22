@@ -15,12 +15,11 @@ if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserI
   if (tokenurlVal) chavy.setdata(tokenurlVal, tokenurlKey)
   if (tokenheaderVal) chavy.setdata(tokenheaderVal, tokenheaderKey)
   chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
-  chavy.done()
 }
 if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
   const tokenheaderVal = JSON.stringify($request.headers)
   const cookie = chavy.getdata(tokenheaderKey)
-      chavy.msg(cookieName, `开始来自scriptable...`, ``)
+  chavy.msg(cookieName, `开始来自scriptable...`, tokenheaderVal)
 
   if(cookie && $request.headers.fromScriptable) {
     chavy.msg(cookieName, `来自scriptable...`, ``)
@@ -29,6 +28,7 @@ if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserI
     $done({headers : modifiedHeaders});
   }
 }
+  chavy.done()
 
 function init() {
   isSurge = () => {
