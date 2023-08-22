@@ -17,7 +17,7 @@ if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserI
   chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
   chavy.done()
 }
-if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 && $request.headers.fromScriptable) {
+if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
   const tokenheaderVal = JSON.stringify($request.headers)
   const cookie = chavy.getdata(tokenheaderKey)
       chavy.msg(cookieName, `开始来自scriptable...`, ``)
