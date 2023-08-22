@@ -8,7 +8,7 @@ const loginlotteryheaderKey = 'chavy_loginlotteryheader_10010'
 const findlotteryurlKey = 'chavy_findlotteryurl_10010'
 const findlotteryheaderKey = 'chavy_findlotteryheader_10010'
 const chavy = init()
-if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('mobileserviceimportant') >= 0) {
+if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0) {
   chavy.msg(cookieName, `获取中...`, ``)
   const tokenurlVal = $request.url
   const tokenheaderVal = JSON.stringify($request.headers)
@@ -17,9 +17,11 @@ if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('mobileserv
   chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
   chavy.done()
 }
-if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0) {
+if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 && $request.headers.fromScriptable) {
   const tokenheaderVal = JSON.stringify($request.headers)
   const cookie = chavy.getdata(tokenheaderKey)
+      chavy.msg(cookieName, `开始来自scriptable...`, ``)
+
   if(cookie && $request.headers.fromScriptable) {
     chavy.msg(cookieName, `来自scriptable...`, ``)
     var modifiedHeaders = $request.headers;
