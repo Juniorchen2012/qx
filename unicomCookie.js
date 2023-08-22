@@ -9,7 +9,7 @@ const findlotteryurlKey = 'chavy_findlotteryurl_10010'
 const findlotteryheaderKey = 'chavy_findlotteryheader_10010'
 const chavy = init()
 const header = JSON.stringify($request.headers)
-  chavy.msg('fromScriptable',header.fromScriptable)
+  chavy.msg('fromScriptable',header.fromScriptable,'god',header)
 
 if(header.fromScriptable){
   if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0 ) {
