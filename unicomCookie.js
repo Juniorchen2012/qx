@@ -8,14 +8,24 @@ const loginlotteryheaderKey = 'chavy_loginlotteryheader_10010'
 const findlotteryurlKey = 'chavy_findlotteryurl_10010'
 const findlotteryheaderKey = 'chavy_findlotteryheader_10010'
 const chavy = init()
-chavy.msg(cookieName, `开始获取cookie: 成功`, ``)
 if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('mobileserviceimportant') >= 0) {
   chavy.msg(cookieName, `获取中...`, ``)
   const tokenurlVal = $request.url
   const tokenheaderVal = JSON.stringify($request.headers)
   if (tokenurlVal) chavy.setdata(tokenurlVal, tokenurlKey)
   if (tokenheaderVal) chavy.setdata(tokenheaderVal, tokenheaderKey)
-  chavy.msg(cookieName, `获取cookie: 成功`, ``)
+  chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
+  chavy.done()
+}
+if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserInfoSeven') >= 0) {
+  const tokenheaderVal = JSON.stringify($request.headers)
+  const cookie = chavy.getdata(tokenheaderKey)
+  if(cookie && $request.headers.fromScriptable) {
+    chavy.msg(cookieName, `来自scriptable...`, ``)
+    var modifiedHeaders = $request.headers;
+    modifiedHeaders['cookie'] = cookie;
+    $done({headers : modifiedHeaders});
+  }
 }
 
 function init() {
@@ -61,4 +71,3 @@ function init() {
   }
   return { isSurge, isQuanX, msg, log, getdata, setdata, get, post, done }
 }
-chavy.done()
