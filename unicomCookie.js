@@ -31,7 +31,8 @@ if ($request && $request.method != 'OPTIONS' && $request.url.indexOf('queryUserI
   const tokenheaderVal = JSON.stringify($request.headers)
   if (tokenurlVal) chavy.setdata(tokenurlVal, tokenurlKey)
   if (tokenheaderVal) chavy.setdata(tokenheaderVal, tokenheaderKey)
-  chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
+  // chavy.msg(cookieName, `中国联通:获取cookie: 成功`, ``)
+  console.log(`中国联通:获取cookie: 成功`)
 }
   chavy.done()
 }
